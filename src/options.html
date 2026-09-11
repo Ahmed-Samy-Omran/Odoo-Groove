@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="optionsTitle">Settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <main class="options">
+    <header class="options-header">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M12 2a5 5 0 0 1 3.6 8.5c2 .9 3.4 2.9 3.4 5.2 0 .4-.3.7-.7.7H5.7a.7.7 0 0 1-.7-.7c0-2.3 1.4-4.3 3.4-5.2A5 5 0 0 1 12 2Z" />
+          <circle cx="9.2" cy="10.4" r="1" fill="#fff" />
+          <circle cx="14.8" cy="10.4" r="1" fill="#fff" />
+          <path fill="currentColor" d="M10 13.5h4v1.2h-4z" />
+        </svg>
+        <div>
+          <h1 data-i18n="appName">Odoo Groove</h1>
+          <p class="options-subtitle" data-i18n="optionsTitle">Settings</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2 data-i18n="optionsLanguage">Interface language</h2>
+      <select id="language">
+        <option value="auto" data-i18n="optionsLangAuto">Auto (browser language)</option>
+        <option value="ar" data-i18n="optionsLangArabic">Arabic</option>
+        <option value="en" data-i18n="optionsLangEnglish">English</option>
+      </select>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="optionsDefaultMode">Default developer mode</h2>
+      <select id="defaultMode">
+        <option value="normal" data-i18n="modeNormal">Normal Debug</option>
+        <option value="assets" data-i18n="modeAssets">Debug Assets</option>
+        <option value="tests" data-i18n="modeTests">Test Assets</option>
+        <option value="off" data-i18n="modeOff">Developer mode off</option>
+      </select>
+      <p class="hint" data-i18n="optionsDefaultModeHint">Used by the toolbar button and the keyboard shortcut when developer mode is off.</p>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="optionsShortcutLabel">Keyboard shortcut</h2>
+      <kbd class="shortcut" id="shortcutBadge">Ctrl+Shift+O</kbd>
+      <p class="hint" data-i18n="optionsShortcutHint">Manage shortcuts in your browser's extension settings (chrome://extensions/shortcuts).</p>
+    </section>
+
+    <p class="privacy" data-i18n="optionsPrivacyNote">Odoo Groove only reads the current tab URL when you interact with it. No data is sent anywhere.</p>
+
+    <p class="saved" id="saved" data-i18n="optionsSave" aria-live="polite" hidden>Saved</p>
+  </main>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+{
+  "extName": { "message": "Odoo Groove", "description": "Extension display name" },
+  "extShortName": { "message": "Odoo Groove", "description": "Short extension name" },
+  "extDescription": {
+    "message": "One-click toggle for Odoo developer (debug) mode on the current page.",
+    "description": "Store description"
+  },
+  "extDefaultTitle": {
+    "message": "Toggle Odoo developer mode",
+    "description": "Tooltip on the toolbar icon"
+  },
+  "shortcutToggleDescription": {
+    "message": "Toggle Odoo developer mode on the current tab",
+    "description": "Keyboard command description"
+  },
+  "appName": { "message": "Odoo Groove", "description": "Header brand name" },
+  "tagline": {
+    "message": "Odoo debug, one click away",
+    "description": "Header subtitle"
+  },
+  "statusOn": { "message": "Developer mode is ON", "description": "Status line when debug=1" },
+  "statusOff": { "message": "Developer mode is OFF", "description": "Status line when debug off" },
+  "statusAssets": {
+    "message": "Debug assets mode is ON",
+    "description": "Status line when debug=assets"
+  },
+  "statusTests": {
+    "message": "Test assets mode is ON",
+    "description": "Status line when debug=tests"
+  },
+  "statusUnknown": {
+    "message": "This page doesn't look like Odoo",
+    "description": "Status when page cannot be confirmed as Odoo"
+  },
+  "statusUnsupported": {
+    "message": "This page cannot be updated",
+    "description": "Status for chrome:// or non-http(s) pages"
+  },
+  "statusLoading": { "message": "Updating…", "description": "Status while navigating" },
+  "statusError": {
+    "message": "Could not update this page",
+    "description": "Status when the toggle failed"
+  },
+  "statusSuccess": { "message": "Developer mode updated", "description": "Brief success message" },
+  "actionTurnOn": {
+    "message": "Turn on developer mode",
+    "description": "Primary button label when off"
+  },
+  "actionTurnOff": {
+    "message": "Turn off developer mode",
+    "description": "Primary button label when on"
+  },
+  "actionRetry": { "message": "Retry", "description": "Error state button label" },
+  "actionBusy": { "message": "Working…", "description": "Disabled button label while busy" },
+  "advancedHeader": {
+    "message": "Advanced modes",
+    "description": "Collapsible section title"
+  },
+  "modeNormal": { "message": "Normal Debug", "description": "debug=1" },
+  "modeAssets": { "message": "Debug Assets", "description": "debug=assets" },
+  "modeTests": { "message": "Test Assets", "description": "debug=tests" },
+  "modeOff": { "message": "Developer mode off", "description": "debug=0" },
+  "domainLabel": { "message": "Current page", "description": "Label before the hostname" },
+  "optionsTitle": { "message": "Settings", "description": "Options page title" },
+  "optionsLanguage": { "message": "Interface language", "description": "Language setting" },
+  "optionsLangAuto": { "message": "Auto (browser language)", "description": "Language option" },
+  "optionsLangArabic": { "message": "Arabic", "description": "Language option" },
+  "optionsLangEnglish": { "message": "English", "description": "Language option" },
+  "optionsDefaultMode": {
+    "message": "Default developer mode",
+    "description": "Mode used when turning on"
+  },
+  "optionsDefaultModeHint": {
+    "message": "Used by the toolbar button and the keyboard shortcut when developer mode is off.",
+    "description": "Helper text"
+  },
+  "optionsShortcutLabel": {
+    "message": "Keyboard shortcut",
+    "description": "Shortcut section heading"
+  },
+  "optionsShortcutHint": {
+    "message": "Manage shortcuts in your browser's extension settings (chrome://extensions/shortcuts).",
+    "description": "Shortcut helper text"
+  },
+  "optionsSave": { "message": "Saved", "description": "Save confirmation" },
+  "footerHint": { "message": "Click the monkey to toggle", "description": "Footer hint" },
+  "optionsPrivacyNote": {
+    "message": "Odoo Groove only reads the current tab URL when you interact with it. No data is sent anywhere.",
+    "description": "Privacy note on options page"
+  }
+}

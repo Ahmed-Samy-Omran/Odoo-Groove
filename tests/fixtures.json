@@ -1,0 +1,167 @@
+{
+  "state": [
+    {
+      "name": "odoo root, no debug",
+      "url": "https://example.odoo.com/web",
+      "expect": { "supported": true, "debugMode": null, "odooLike": true, "state": "off" }
+    },
+    {
+      "name": "debug=1",
+      "url": "https://example.odoo.com/web?debug=1",
+      "expect": { "supported": true, "debugMode": "1", "odooLike": true, "state": "on" }
+    },
+    {
+      "name": "debug=0",
+      "url": "https://example.odoo.com/web?debug=0",
+      "expect": { "supported": true, "debugMode": "0", "odooLike": true, "state": "off" }
+    },
+    {
+      "name": "debug=assets",
+      "url": "https://example.odoo.com/web?debug=assets",
+      "expect": { "supported": true, "debugMode": "assets", "odooLike": true, "state": "assets" }
+    },
+    {
+      "name": "debug=tests",
+      "url": "https://example.odoo.com/web?debug=tests",
+      "expect": { "supported": true, "debugMode": "tests", "odooLike": true, "state": "tests" }
+    },
+    {
+      "name": "empty debug value means off",
+      "url": "https://example.odoo.com/web?debug=",
+      "expect": { "supported": true, "debugMode": "0", "odooLike": true, "state": "off" }
+    },
+    {
+      "name": "hash action is preserved and ignored by state",
+      "url": "https://x.odoo.com/odoo/contacts?debug=1#action=123",
+      "expect": { "supported": true, "debugMode": "1", "odooLike": true, "state": "on" }
+    },
+    {
+      "name": "unknown page without odoo clues",
+      "url": "https://news.example.com/article/123",
+      "expect": { "supported": true, "debugMode": null, "odooLike": false, "state": "unknown" }
+    },
+    {
+      "name": "path /web on internal domain",
+      "url": "https://intranet.local/web",
+      "expect": { "supported": true, "debugMode": null, "odooLike": true, "state": "off" }
+    },
+    {
+      "name": "path /shop is an odoo clue",
+      "url": "https://shop.example.com/shop/category/1",
+      "expect": { "supported": true, "debugMode": null, "odooLike": true, "state": "off" }
+    },
+    {
+      "name": "hostname check is case-insensitive",
+      "url": "https://WWW.ODOO.COM/PORTAL",
+      "expect": { "supported": true, "debugMode": null, "odooLike": true, "state": "off" }
+    },
+    {
+      "name": "uppercase debug value is treated as on",
+      "url": "https://example.odoo.com/web?debug=On",
+      "expect": { "supported": true, "debugMode": "On", "odooLike": true, "state": "on" }
+    },
+    {
+      "name": "chrome internal page is unsupported",
+      "url": "chrome://extensions/",
+      "expect": { "supported": false, "debugMode": null, "odooLike": false, "state": "unsupported" }
+    },
+    {
+      "name": "file page is unsupported",
+      "url": "file:///tmp/report.html",
+      "expect": { "supported": false, "debugMode": null, "odooLike": false, "state": "unsupported" }
+    },
+    {
+      "name": "garbage input is unsupported",
+      "url": "not a url at all",
+      "expect": { "supported": false, "debugMode": null, "odooLike": false, "state": "unsupported" }
+    },
+    {
+      "name": "blank string is unsupported",
+      "url": "",
+      "expect": { "supported": false, "debugMode": null, "odooLike": false, "state": "unsupported" }
+    },
+    {
+      "name": "query params around debug are kept for reading",
+      "url": "https://example.odoo.com/web?a=1&debug=1&b=2",
+      "expect": { "supported": true, "debugMode": "1", "odooLike": true, "state": "on" }
+    },
+    {
+      "name": "encoded hash inside login redirect query",
+      "url": "https://odoo.example.com/web/login?redirect=%2Fweb%23action%3D123&debug=",
+      "expect": { "supported": true, "debugMode": "0", "odooLike": true, "state": "off" }
+    }
+  ],
+  "build": [
+    {
+      "name": "add debug=1 preserving path",
+      "url": "https://x.odoo.com/web",
+      "target": "1",
+      "expect": { "debug": "1", "pathname": "/web", "hash": "", "otherParams": [] }
+    },
+    {
+      "name": "add debug keeping query + hash",
+      "url": "https://x.odoo.com/odoo?a=1#frag",
+      "target": "1",
+      "expect": { "debug": "1", "pathname": "/odoo", "hash": "#frag", "otherParams": [["a", "1"]] }
+    },
+    {
+      "name": "replace debug=0 with assets keeping action hash",
+      "url": "https://x.odoo.com/web?debug=0#action=123",
+      "target": "assets",
+      "expect": { "debug": "assets", "pathname": "/web", "hash": "#action=123", "otherParams": [] }
+    },
+    {
+      "name": "switch from assets to tests",
+      "url": "https://x.odoo.com/web?debug=assets&c=2",
+      "target": "tests",
+      "expect": { "debug": "tests", "pathname": "/web", "hash": "", "otherParams": [["c", "2"]] }
+    },
+    {
+      "name": "deep path preserved",
+      "url": "https://x.odoo.com/web#action=app&model=res.partner",
+      "target": "0",
+      "expect": { "debug": "0", "pathname": "/web", "hash": "#action=app&model=res.partner", "otherParams": [] }
+    },
+    {
+      "name": "utm parameters preserved",
+      "url": "https://odoo.example.com/shop?utm_source=newsletter&debug=1",
+      "target": "1",
+      "expect": { "debug": "1", "pathname": "/shop", "hash": "", "otherParams": [["utm_source", "newsletter"]] }
+    },
+    {
+      "name": "off on internal http host",
+      "url": "http://odoo.local:8069/web?debug=tests",
+      "target": "0",
+      "expect": { "debug": "0", "pathname": "/web", "hash": "", "otherParams": [] }
+    },
+    {
+      "name": "chrome internal page passthrough",
+      "url": "chrome://extensions/",
+      "target": "1",
+      "expectPassthrough": true
+    },
+    {
+      "name": "garbage input passthrough",
+      "url": "not a url",
+      "target": "1",
+      "expectPassthrough": true
+    },
+    {
+      "name": "file page passthrough",
+      "url": "file:///tmp/report.html",
+      "target": "0",
+      "expectPassthrough": true
+    }
+  ],
+  "toggle": [
+    { "name": "off + panel normal -> on", "url": "https://x.odoo.com/web", "panelMode": "normal", "expect": "1" },
+    { "name": "on + panel normal -> off", "url": "https://x.odoo.com/web?debug=1", "panelMode": "normal", "expect": "0" },
+    { "name": "assets always turns off", "url": "https://x.odoo.com/web?debug=assets", "panelMode": "normal", "expect": "0" },
+    { "name": "tests always turns off", "url": "https://x.odoo.com/web?debug=tests", "panelMode": "normal", "expect": "0" },
+    { "name": "unknown + panel normal -> on", "url": "https://other.example/cool", "panelMode": "normal", "expect": "1" },
+    { "name": "unknown + panel assets -> assets", "url": "https://other.example/cool", "panelMode": "assets", "expect": "assets" },
+    { "name": "off + panel off -> forced off", "url": "https://x.odoo.com/web", "panelMode": "off", "expect": "0" },
+    { "name": "unknown + panel tests -> tests", "url": "https://other.example/cool", "panelMode": "tests", "expect": "tests" },
+    { "name": "turning off keeps other params", "url": "https://x.odoo.com/web?debug=1&x=9#action=321", "panelMode": "normal", "expect": "0" }
+  ]
+}

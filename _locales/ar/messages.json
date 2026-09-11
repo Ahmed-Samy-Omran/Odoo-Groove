@@ -1,0 +1,91 @@
+{
+  "extName": { "message": "Odoo Groove", "description": "اسم الإضافة" },
+  "extShortName": { "message": "Odoo Groove", "description": "اسم الإضافة المختصر" },
+  "extDescription": {
+    "message": "تبديل وضع المطور (Debug Mode) في Odoo للصفحة الحالية بنقرة واحدة.",
+    "description": "وصف المتجر"
+  },
+  "extDefaultTitle": {
+    "message": "تبديل وضع المطور في Odoo",
+    "description": "تلميح أيقونة شريط المتصفح"
+  },
+  "shortcutToggleDescription": {
+    "message": "تبديل وضع المطور في Odoo للتبويب الحالي",
+    "description": "وصف اختصار لوحة المفاتيح"
+  },
+  "appName": { "message": "Odoo Groove", "description": "اسم الشعار في الترويسة" },
+  "tagline": {
+    "message": "وضع المطوّر في Odoo بنقرة واحدة",
+    "description": "عنوان فرعي في الترويسة"
+  },
+  "statusOn": { "message": "وضع المطور مفعّل", "description": "سطر الحالة عند debug=1" },
+  "statusOff": { "message": "وضع المطور غير مفعّل", "description": "سطر الحالة عند توقف المطور" },
+  "statusAssets": {
+    "message": "وضع أصول التصحيح مفعّل",
+    "description": "سطر الحالة عند debug=assets"
+  },
+  "statusTests": {
+    "message": "وضع أصول الاختبارات مفعّل",
+    "description": "سطر الحالة عند debug=tests"
+  },
+  "statusUnknown": {
+    "message": "لم نتمكن من التعرّف على صفحة Odoo",
+    "description": "الحالة عندما لا يمكن تأكيد أن الصفحة من Odoo"
+  },
+  "statusUnsupported": {
+    "message": "لا يمكن تحديث هذه الصفحة",
+    "description": "حالة chrome:// أو الصفحات غير HTTP/HTTPS"
+  },
+  "statusLoading": { "message": "جارٍ التحديث…", "description": "الحالة أثناء التنقل" },
+  "statusError": {
+    "message": "تعذر تحديث الصفحة",
+    "description": "الحالة عند فشل التبديل"
+  },
+  "statusSuccess": { "message": "تم تحديث وضع المطور", "description": "رسالة نجاح قصيرة" },
+  "actionTurnOn": {
+    "message": "تفعيل وضع المطور",
+    "description": "زر أساسي عند إيقاف المطور"
+  },
+  "actionTurnOff": {
+    "message": "إيقاف وضع المطور",
+    "description": "زر أساسي عند تفعيل المطور"
+  },
+  "actionRetry": { "message": "إعادة المحاولة", "description": "زر إعادة المحاولة في حالة الخطأ" },
+  "actionBusy": { "message": "جارٍ التنفيذ…", "description": "نص الزر أثناء التعطيل المؤقت" },
+  "advancedHeader": {
+    "message": "الأوضاع المتقدمة",
+    "description": "عنوان القسم القابل للطي"
+  },
+  "modeNormal": { "message": "Normal Debug", "description": "debug=1" },
+  "modeAssets": { "message": "Debug Assets", "description": "debug=assets" },
+  "modeTests": { "message": "Test Assets", "description": "debug=tests" },
+  "modeOff": { "message": "وضع المطور متوقف", "description": "debug=0" },
+  "domainLabel": { "message": "الصفحة الحالية", "description": "تسمية قبل اسم النطاق" },
+  "optionsTitle": { "message": "الإعدادات", "description": "عنوان صفحة الإعدادات" },
+  "optionsLanguage": { "message": "لغة الواجهة", "description": "إعداد اللغة" },
+  "optionsLangAuto": { "message": "تلقائي (لغة المتصفح)", "description": "خيار اللغة" },
+  "optionsLangArabic": { "message": "العربية", "description": "خيار اللغة" },
+  "optionsLangEnglish": { "message": "الإنجليزية", "description": "خيار اللغة" },
+  "optionsDefaultMode": {
+    "message": "وضع المطور الافتراضي",
+    "description": "الوضع المستخدم عند التفعيل"
+  },
+  "optionsDefaultModeHint": {
+    "message": "يُستخدم عند إيقاف المطور من زر شريط المتصفح أو الاختصار.",
+    "description": "نص مساعد"
+  },
+  "optionsShortcutLabel": {
+    "message": "اختصار لوحة المفاتيح",
+    "description": "عنوان قسم الاختصار"
+  },
+  "optionsShortcutHint": {
+    "message": "يمكنك إدارة الاختصارات من إعدادات إضافات المتصفح (chrome://extensions/shortcuts).",
+    "description": "نص مساعد للاختصار"
+  },
+  "optionsSave": { "message": "تم الحفظ", "description": "تأكيد الحفظ" },
+  "footerHint": { "message": "انقر القرد للتبديل", "description": "تلميح أسفل الواجهة" },
+  "optionsPrivacyNote": {
+    "message": "تقرأ Odoo Groove عنوان التبويب الحالي فقط عند تفاعلك معها، ولا تُرسَل أي بيانات إلى أي مكان.",
+    "description": "ملاحظة خصوصية في صفحة الإعدادات"
+  }
+}

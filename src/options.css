@@ -1,0 +1,164 @@
+@import "./tokens.css";
+
+/* ================================================
+   Options page
+   ================================================ */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background:
+    radial-gradient(130% 70% at 50% -8%, rgba(26, 32, 38, 0.8) 0%, transparent 55%),
+    var(--bg-0);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", "Noto Sans", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+body[dir="rtl"] {
+  font-family: "Noto Sans Arabic", "Segoe UI", Tahoma, -apple-system, sans-serif;
+}
+
+.options {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 28px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ---- Header ---- */
+.options-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  color: var(--accent-green);
+  filter: drop-shadow(0 0 10px rgba(139, 216, 62, 0.35));
+  flex-shrink: 0;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.brand .options-subtitle {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* ---- Card ---- */
+.card {
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-soft);
+}
+
+.card h2 {
+  margin: 0 0 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* ---- Select ---- */
+select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-strong);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+}
+
+select:hover {
+  border-color: var(--line-strong);
+}
+
+select:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+  border-color: var(--accent-blue);
+}
+
+/* ---- Hint text ---- */
+.hint {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ---- Keyboard shortcut badge ---- */
+.shortcut {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: var(--radius-xs);
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+  color: var(--accent-green);
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+  font-size: 12.5px;
+  font-weight: 600;
+  direction: ltr;
+  unicode-bidi: isolate;
+  letter-spacing: 0.5px;
+}
+
+/* ---- Privacy note ---- */
+.privacy {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 6px 8px 0;
+  line-height: 1.4;
+}
+
+/* ---- Saved badge ---- */
+.saved {
+  text-align: center;
+  color: var(--accent-green);
+  font-weight: 600;
+  font-size: 13px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+body[data-saving="true"] .saved {
+  opacity: 1;
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

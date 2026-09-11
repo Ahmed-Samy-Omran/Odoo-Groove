@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>Odoo Groove</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body class="state-loading">
+  <header class="app-header">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M12 2a5 5 0 0 1 3.6 8.5c2 .9 3.4 2.9 3.4 5.2 0 .4-.3.7-.7.7H5.7a.7.7 0 0 1-.7-.7c0-2.3 1.4-4.3 3.4-5.2A5 5 0 0 1 12 2Z" />
+        <circle cx="9.2" cy="10.4" r="1" fill="#fff" />
+        <circle cx="14.8" cy="10.4" r="1" fill="#fff" />
+        <path fill="currentColor" d="M10 13.5h4v1.2h-4z" />
+      </svg>
+      <div class="brand-text">
+        <h1 data-i18n="appName">Odoo Groove</h1>
+        <p data-i18n="tagline">Odoo debug, one click away</p>
+      </div>
+    </div>
+    <button id="settingsBtn" class="icon-btn" type="button" data-i18n-title="optionsTitle" data-i18n-aria="optionsTitle">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+          <path d="M12 8.4a3.6 3.6 0 1 0 0 7.2 3.6 3.6 0 0 0 0-7.2Z" />
+          <path d="M19 13.5l1.6 1.2-1.6 2.8-2 .8-.5 2.1h-3.2l-.7-2-1.9-1-2.2.9-1.6-2.8L8 14l-.5-2-1.8-.9L8 7.5l2 .4 1.3-1.7 3.2-.1 1.1 1.9 2 .6 1.4 2.7-1.6 2Z" />
+        </g>
+      </svg>
+    </button>
+  </header>
+
+  <main>
+    <section class="status-card" aria-live="polite">
+      <div class="monkey-zone">
+        <div class="monkey-badge" id="monkeyBadge" hidden aria-hidden="true"></div>
+        <svg class="monkey" id="monkey" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+          <defs>
+            <radialGradient id="glowGrad" cx="50%" cy="45%" r="50%">
+              <stop offset="0%" stop-color="var(--accent-green)" stop-opacity="0.55" />
+              <stop offset="100%" stop-color="var(--accent-green)" stop-opacity="0" />
+            </radialGradient>
+            <radialGradient id="glowBlue" cx="50%" cy="45%" r="50%">
+              <stop offset="0%" stop-color="var(--accent-blue)" stop-opacity="0.5" />
+              <stop offset="100%" stop-color="var(--accent-blue)" stop-opacity="0" />
+            </radialGradient>
+            <radialGradient id="glowRed" cx="50%" cy="45%" r="50%">
+              <stop offset="0%" stop-color="var(--danger)" stop-opacity="0.45" />
+              <stop offset="100%" stop-color="var(--danger)" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+
+          <circle class="monkey-glow" cx="60" cy="52" r="52" fill="url(#glowGrad)" />
+
+          <path class="monkey-tail" d="M60 100 C 74 104 86 98 90 86 C 92 80 88 74 82 76" fill="none"
+                stroke="var(--fur-deep)" stroke-width="7" stroke-linecap="round" />
+
+          <ellipse class="monkey-body" cx="60" cy="92" rx="21" ry="17" fill="var(--fur)" />
+          <ellipse class="monkey-belly" cx="60" cy="96" rx="13" ry="9" fill="var(--fur-light)" />
+
+          <g class="arm" id="armLeft" style="transform-origin:46px 76px">
+            <path d="M46 76 C 40 80 35 86 33 95" fill="none" stroke="var(--fur)" stroke-width="8" stroke-linecap="round" />
+            <circle cx="32.5" cy="98" r="4.6" fill="var(--skin)" />
+          </g>
+          <g class="arm" id="armRight" style="transform-origin:74px 76px">
+            <path d="M74 76 C 80 80 85 86 87 95" fill="none" stroke="var(--fur)" stroke-width="8" stroke-linecap="round" />
+            <circle cx="87.5" cy="98" r="4.6" fill="var(--skin)" />
+          </g>
+
+          <g class="monkey-head">
+            <circle cx="29" cy="41" r="9" fill="var(--fur)" />
+            <circle cx="91" cy="41" r="9" fill="var(--fur)" />
+            <circle cx="29" cy="41" r="4.5" fill="var(--skin)" />
+            <circle cx="91" cy="41" r="4.5" fill="var(--skin)" />
+            <circle cx="60" cy="45" r="25" fill="var(--fur)" />
+            <ellipse class="monkey-face" cx="60" cy="51" rx="17" ry="14" fill="var(--skin)" />
+
+            <path class="monkey-brow browL" d="M47 41 q 4 -3 8 -1" fill="none" stroke="var(--fur-deep)" stroke-width="2.6" stroke-linecap="round" />
+            <path class="monkey-brow browR" d="M65 40 q 4 -2 8 1" fill="none" stroke="var(--fur-deep)" stroke-width="2.6" stroke-linecap="round" />
+
+            <circle class="monkey-eye" id="eyeLeft" cx="52" cy="47.5" r="3.6" fill="var(--eye)" />
+            <circle class="monkey-eye" id="eyeRight" cx="68" cy="47.5" r="3.6" fill="var(--eye)" />
+            <circle class="monkey-eye-hl" cx="50.8" cy="46.4" r="1.2" fill="#fff" />
+            <circle class="monkey-eye-hl" cx="66.8" cy="46.4" r="1.2" fill="#fff" />
+
+            <ellipse class="monkey-nose" cx="60" cy="56.5" rx="2.4" ry="1.9" fill="var(--fur-deep)" />
+            <path class="monkey-mouth" d="M56 61.5 q 4 3.4 8 0" fill="none" stroke="var(--fur-deep)" stroke-width="2.2" stroke-linecap="round" />
+          </g>
+        </svg>
+      </div>
+
+      <p class="status-text" id="statusText">Updating…</p>
+      <p class="domain-text" id="domainText"></p>
+    </section>
+
+    <button id="toggleBtn" class="toggle-btn" type="button" aria-pressed="false">
+      <span id="toggleLabel">Turn on developer mode</span>
+    </button>
+
+    <div class="advanced" id="advanced">
+      <button type="button" class="advanced-trigger" id="advancedTrigger" aria-expanded="false" aria-controls="advancedPanel">
+        <span data-i18n="advancedHeader">Advanced modes</span>
+        <svg class="chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="advanced-panel" id="advancedPanel" role="region" aria-labelledby="advancedTrigger" hidden>
+        <fieldset id="modeFieldset">
+          <legend class="visually-hidden" data-i18n="advancedHeader">Advanced modes</legend>
+          <label class="mode-option">
+            <input type="radio" name="mode" value="normal" />
+            <span data-i18n="modeNormal">Normal Debug</span>
+            <code>debug=1</code>
+          </label>
+          <label class="mode-option">
+            <input type="radio" name="mode" value="assets" />
+            <span data-i18n="modeAssets">Debug Assets</span>
+            <code>debug=assets</code>
+          </label>
+          <label class="mode-option">
+            <input type="radio" name="mode" value="tests" />
+            <span data-i18n="modeTests">Test Assets</span>
+            <code>debug=tests</code>
+          </label>
+          <label class="mode-option">
+            <input type="radio" name="mode" value="off" />
+            <span data-i18n="modeOff">Developer mode off</span>
+            <code>debug=0</code>
+          </label>
+        </fieldset>
+      </div>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <span id="version">v1.0.0</span>
+    <span class="footer-dot">·</span>
+    <span data-i18n="footerHint">Click the monkey to toggle</span>
+  </footer>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
